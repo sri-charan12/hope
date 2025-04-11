@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Food - FoodShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="logo.jpg" height="100px">
+            <div class="logo"></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="login.html" class="login-btn">Login</a>
+           
+        </nav>
+    </header>
+
+    <main>
+        <section class="find-food-hero">
+            <div class="hero-content">
+                <h1>Find Available Food</h1>
+                <p>Browse through available food donations in your area.</p>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-filters">
+                    <div class="filter-group">
+                        <label for="location-search">Location</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="location-search" placeholder="Enter your location">
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label for="food-type-filter">Food Type</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-utensils"></i>
+                            <select id="food-type-filter">
+                                <option value="">All Types</option>
+                                <option value="prepared">Prepared Meals</option>
+                                <option value="produce">Produce</option>
+                                <option value="bakery">Bakery Items</option>
+                                <option value="dairy">Dairy Products</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label for="distance-filter">Distance</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-road"></i>
+                            <select id="distance-filter">
+                                <option value="5">Within 5 miles</option>
+                                <option value="10">Within 10 miles</option>
+                                <option value="20">Within 20 miles</option>
+                                <option value="50">Within 50 miles</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="primary-btn" id="search-btn">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="food-listings">
+            <div class="listings-header">
+                <h2>Available Food Items</h2>
+                <div class="view-options">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="food-grid" id="foodItems">
+                <!-- Food items will be dynamically added here -->
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <span class="page-info">Page 1 of 1</span>
+                <button class="pagination-btn" disabled>
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h2>How to Request Food</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-search"></i>
+                    <h3>Find Food</h3>
+                    <p>Browse available food items in your area</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Request Pickup</h3>
+                    <p>Select items and choose a pickup time</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-truck"></i>
+                    <h3>Pick Up</h3>
+                    <p>Collect your food at the specified location</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="contact"></section>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>FoodShare</h4>
+                <p>Connecting surplus food with those in need.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="find-food.html">Find Food</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: info@foodshare.org</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FoodShare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

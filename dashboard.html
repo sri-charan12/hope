@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FoodShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">FoodShare</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="find-food.html">Find Food</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="profile.html" class="profile-btn"><i class="fas fa-user"></i> Profile</a>
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Welcome, <span id="userName">User</span>!</h1>
+            <p class="last-login">Last login: <span id="lastLogin">Just now</span></p>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Activity Summary -->
+            <section class="dashboard-card activity-summary">
+                <h2>Activity Summary</h2>
+                <div class="activity-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <div class="stat-info">
+                            <h3>Donations Made</h3>
+                            <p id="donationCount">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-utensils"></i>
+                        <div class="stat-info">
+                            <h3>Food Items Received</h3>
+                            <p id="receivedCount">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <div class="stat-info">
+                            <h3>Impact Score</h3>
+                            <p id="impactScore">0</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="dashboard-card recent-activity">
+                <h2>Recent Activity</h2>
+                <div class="activity-list" id="activityList">
+                    <!-- Activity items will be dynamically added here -->
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="dashboard-card quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <a href="donate.html" class="action-btn">
+                        <i class="fas fa-plus-circle"></i>
+                        New Donation
+                    </a>
+                    <a href="find-food.html" class="action-btn">
+                        <i class="fas fa-search"></i>
+                        Find Food
+                    </a>
+                    <a href="profile.html" class="action-btn">
+                        <i class="fas fa-user-edit"></i>
+                        Edit Profile
+                    </a>
+                    <a href="contact.html" class="action-btn">
+                        <i class="fas fa-envelope"></i>
+                        Contact Support
+                    </a>
+                </div>
+            </section>
+
+            <!-- Impact Stats -->
+            <section class="dashboard-card impact-stats">
+                <h2>Your Impact</h2>
+                <div class="impact-metrics">
+                    <div class="metric">
+                        <div class="metric-circle">
+                            <span id="mealsProvided">0</span>
+                            <p>Meals Provided</p>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-circle">
+                            <span id="foodSaved">0</span>
+                            <p>Lbs Food Saved</p>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-circle">
+                            <span id="peopleHelped">0</span>
+                            <p>People Helped</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="find-food.html">Find Food</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@foodshare.org</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Address: 123 Food Street, Share City, SC 12345</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FoodShare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

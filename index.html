@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodShare - Connecting Surplus Food with Those in Need</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="logo.jpg" height="100px">
+            <div class="logo"></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="find-food.html">Find Food</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <!-- This will be dynamically updated based on login state -->
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Connecting Surplus Food with Those in Need</h1>
+                <p>Join our community of donors and recipients to reduce food waste and help those in need.</p>
+                <div class="cta-buttons">
+                    <a href="donate.html" class="primary-btn">Start Donating</a>
+                    <a href="find-food.html" class="secondary-btn">Find Food</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2>How It Works</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>List Surplus Food</h3>
+                    <p>Restaurants and stores can easily list their surplus food items.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Schedule Pickup</h3>
+                    <p>Coordinate convenient pickup times with recipients.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safety First</h3>
+                    <p>All donations meet food safety standards and guidelines.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Track Impact</h3>
+                    <p>Monitor your contribution to reducing food waste.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About FoodShare</h2>
+            <div class="about-container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Mission</h3>
+                        <p>FoodShare was founded in 2020 by a group of food industry professionals who witnessed the alarming amount of food waste while many people struggled with hunger. What started as a small local initiative has grown into a nationwide platform connecting food donors with those in need.</p>
+                        <p>Today, we work with hundreds of restaurants, grocery stores, and individual donors to ensure that good food doesn't go to waste. Our network of volunteers and partner organizations helps us distribute food efficiently to those who need it most.</p>
+                        <p>Our mission is to connect surplus food with those in need to reduce waste and fight hunger. We believe that no one should go hungry while good food goes to waste.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="stat-number">50,000+</span>
+                            <span class="stat-label">Meals Donated</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-number">1,000+</span>
+                            <span class="stat-label">Active Donors</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Partner Organizations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="impact-section">
+                <div class="impact-content">
+                    <h3>Making a Difference</h3>
+                    <p>Every day, FoodShare helps redirect surplus food to those who need it most. Our platform has facilitated the donation of over 50,000 meals, reducing food waste and helping to address food insecurity in communities across the country.</p>
+                    <p>We believe that no one should go hungry while good food goes to waste. By connecting donors with recipients, we're creating a more sustainable and equitable food system for everyone.</p>
+                    <div class="impact-features">
+                        <div class="impact-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Real-time tracking of food donations</span>
+                        </div>
+                        <div class="impact-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Efficient distribution network</span>
+                        </div>
+                        <div class="impact-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Food safety compliance</span>
+                        </div>
+                    </div>
+                    <a href="donate.html" class="primary-btn">Join Our Mission</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="food-availability">
+            <h2>Available Food Items</h2>
+            <div class="filters">
+                <select id="foodTypeFilter">
+                    <option value="">All Food Types</option>
+                    <option value="prepared">Prepared Meals</option>
+                    <option value="produce">Produce</option>
+                    <option value="bakery">Bakery Items</option>
+                    <option value="dairy">Dairy Products</option>
+                </select>
+                <select id="distanceFilter">
+                    <option value="">Any Distance</option>
+                    <option value="5">Within 5 miles</option>
+                    <option value="10">Within 10 miles</option>
+                    <option value="20">Within 20 miles</option>
+                </select>
+            </div>
+            <div class="food-grid" id="foodItems">
+                <!-- Food items will be dynamically added here -->
+            </div>
+        </section>
+
+        <section id="donation-form">
+            <h2>Make a Donation</h2>
+            <form id="food-donation-form">
+                <div class="form-group">
+                    <label for="donor-type">I am a:</label>
+                    <select id="donor-type" required>
+                        <option value="">Select donor type</option>
+                        <option value="restaurant">Restaurant</option>
+                        <option value="grocery">Grocery Store</option>
+                        <option value="individual">Individual</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="food-type">Food Type:</label>
+                    <input type="text" id="food-type" placeholder="e.g., Prepared Meals, Produce, Bakery Items" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" placeholder="Number of items/portions" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiry">Expiry Date:</label>
+                    <input type="datetime-local" id="expiry" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Pickup Location:</label>
+                    <input type="text" id="location" placeholder="Enter address" required>
+                </div>
+                <div class="form-group">
+                    <label for="storage">Storage Conditions:</label>
+                    <select id="storage" required>
+                        <option value="">Select storage type</option>
+                        <option value="refrigerated">Refrigerated</option>
+                        <option value="frozen">Frozen</option>
+                        <option value="room-temp">Room Temperature</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="safety">Food Safety Compliance:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="safety1" required>
+                        <label for="safety1">Food was prepared in a licensed kitchen</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="safety2" required>
+                        <label for="safety2">Proper temperature maintained during storage</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="safety3" required>
+                        <label for="safety3">Food is within its expiration date</label>
+                    </div>
+                </div>
+                <button type="submit" class="primary-btn">Submit Donation</button>
+            </form>
+        </section>
+
+        <section id="logistics">
+            <h2>Logistics Coordination</h2>
+            <div class="logistics-container">
+                <div class="logistics-info">
+                    <h3>Pickup & Delivery Management</h3>
+                    <p>Our platform helps coordinate efficient food pickups and deliveries:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Real-time tracking of pickup status</li>
+                        <li><i class="fas fa-check-circle"></i> Automated notifications for donors and recipients</li>
+                        <li><i class="fas fa-check-circle"></i> Route optimization for efficient deliveries</li>
+                        <li><i class="fas fa-check-circle"></i> Temperature monitoring during transit</li>
+                    </ul>
+                    <div class="logistics-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">On-time Deliveries</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Active Volunteers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Support Available</span>
+                        </div>
+                    </div>
+                    <div class="logistics-cta">
+                        <button class="primary-btn" id="trackDeliveryBtn">Track a Delivery</button>
+                        <button class="secondary-btn" id="volunteerBtn">Become a Volunteer</button>
+                    </div>
+                </div>
+                <div class="logistics-map-container">
+                    <div class="map-controls">
+                        <button class="map-control-btn active" data-view="donors">Donors</button>
+                        <button class="map-control-btn" data-view="recipients">Recipients</button>
+                        <button class="map-control-btn" data-view="routes">Active Routes</button>
+                    </div>
+                    <div id="logistics-map"></div>
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #4CAF50;"></span>
+                            <span>Donors</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #2196F3;"></span>
+                            <span>Recipients</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #FF9800;"></span>
+                            <span>Active Routes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="contact"></section><div>  </div><div class="footer-content">
+            <div class="footer-section">
+                <h4>FoodShare</h4>
+                <p>Connecting surplus food with those in need.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="find-food.html">Find Food</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: info@foodshare.org</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FoodShare. All rights reserved.</p>
+        </div>
+    </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget" style="display: none;">
+        <div class="chatbot-header" id="chatbotHeader">
+            <h3>FoodShare Assistant</h3>
+            <button class="minimize-btn" id="minimizeChatbot"><i class="fas fa-minus"></i></button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Hello! I'm your FoodShare assistant. How can I help you today?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Type your question here...">
+                <button id="sendMessageBtn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+    <button class="chatbot-toggle" id="chatbotToggle">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <!-- Leaflet.js for map integration -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        // Initialize the map when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the map with a default view (will be updated with user's location)
+            const map = L.map('logistics-map').setView([20.5937, 78.9629], 5);
+            
+            // Add the OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            // Get user's location
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+                    
+                    // Center map on user's location
+                    map.setView([userLat, userLng], 10);
+                    
+                    // Add a marker for the user's location
+                    const userMarker = L.marker([userLat, userLng], {
+                        icon: L.divIcon({
+                            className: 'custom-marker',
+                            html: `<div style="background-color: #FF5722; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white;"></div>`,
+                            iconSize: [16, 16]
+                        })
+                    }).bindPopup('<strong>Your Location</strong>');
+                    
+                    userMarker.addTo(map);
+                    
+                    // Find nearby donors and recipients (simplified for demo)
+                    const nearbyDonors = findNearbyLocations(userLat, userLng, donors, 100);
+                    const nearbyRecipients = findNearbyLocations(userLat, userLng, recipients, 100);
+                    
+                    // Update the donor and recipient markers with nearby locations
+                    donorMarkers.clearLayers();
+                    recipientMarkers.clearLayers();
+                    
+                    addMarkers(nearbyDonors, '#4CAF50').forEach(marker => donorMarkers.addLayer(marker));
+                    addMarkers(nearbyRecipients, '#2196F3').forEach(marker => recipientMarkers.addLayer(marker));
+                    
+                    // Update routes to include user's location
+                    updateRoutes(nearbyDonors, nearbyRecipients, userLat, userLng);
+                    
+                }, function(error) {
+                    console.error("Error getting location:", error);
+                    // Continue with default India view if location access is denied
+                    initializeDefaultMap();
+                });
+            } else {
+                console.log("Geolocation is not supported by this browser.");
+                // Continue with default India view if geolocation is not supported
+                initializeDefaultMap();
+            }
+            
+            // Sample data for donors, recipients, and routes in India
+            const donors = [
+                {lat: 28.6139, lng: 77.2090, name: "Fresh Foods Delhi", type: "Grocery Store"},
+                {lat: 19.0760, lng: 72.8777, name: "Mumbai Kitchen", type: "Restaurant"},
+                {lat: 12.9716, lng: 77.5946, name: "Bangalore Bakery", type: "Bakery"},
+                {lat: 22.5726, lng: 88.3639, name: "Kolkata Grocers", type: "Grocery Store"},
+                {lat: 13.0827, lng: 80.2707, name: "Chennai Foods", type: "Restaurant"}
+            ];
+            
+            const recipients = [
+                {lat: 28.7041, lng: 77.1025, name: "Delhi Community Kitchen", type: "Food Bank"},
+                {lat: 19.2183, lng: 72.9781, name: "Mumbai Hope Shelter", type: "Shelter"},
+                {lat: 12.9916, lng: 77.5712, name: "Bangalore Youth Center", type: "Community Center"},
+                {lat: 22.5356, lng: 88.3644, name: "Kolkata Food Bank", type: "Food Bank"},
+                {lat: 13.0827, lng: 80.2707, name: "Chennai Community Center", type: "Community Center"}
+            ];
+            
+            // Function to find nearby locations within a certain radius (in km)
+            function findNearbyLocations(userLat, userLng, locations, radius) {
+                return locations.filter(location => {
+                    const distance = calculateDistance(
+                        userLat, userLng, 
+                        location.lat, location.lng
+                    );
+                    return distance <= radius;
+                });
+            }
+            
+            // Calculate distance between two points using Haversine formula
+            function calculateDistance(lat1, lon1, lat2, lon2) {
+                const R = 6371; // Radius of the earth in km
+                const dLat = deg2rad(lat2 - lat1);
+                const dLon = deg2rad(lon2 - lon1);
+                const a = 
+                    Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+                    Math.sin(dLon/2) * Math.sin(dLon/2); 
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                const distance = R * c; // Distance in km
+                return distance;
+            }
+            
+            function deg2rad(deg) {
+                return deg * (Math.PI/180);
+            }
+            
+            // Function to add markers to the map
+            function addMarkers(data, iconColor) {
+                const markers = [];
+                data.forEach(item => {
+                    const marker = L.marker([item.lat, item.lng], {
+                        icon: L.divIcon({
+                            className: 'custom-marker',
+                            html: `<div style="background-color: ${iconColor}; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white;"></div>`,
+                            iconSize: [16, 16]
+                        })
+                    }).bindPopup(`<strong>${item.name}</strong><br>${item.type}`);
+                    markers.push(marker);
+                });
+                return markers;
+            }
+            
+            // Create layer groups for different marker types
+            const donorMarkers = L.layerGroup().addTo(map);
+            const recipientMarkers = L.layerGroup().addTo(map);
+            const routeLines = L.layerGroup().addTo(map);
+            
+            // Function to update routes based on nearby locations
+            function updateRoutes(nearbyDonors, nearbyRecipients, userLat, userLng) {
+                routeLines.clearLayers();
+                
+                // Add routes from user to nearby donors
+                nearbyDonors.forEach(donor => {
+                    const line = L.polyline(
+                        [[userLat, userLng], [donor.lat, donor.lng]], 
+                        {color: '#FF9800', weight: 3, opacity: 0.7, dashArray: '5, 10'}
+                    );
+                    routeLines.addLayer(line);
+                });
+                
+                // Add routes from user to nearby recipients
+                nearbyRecipients.forEach(recipient => {
+                    const line = L.polyline(
+                        [[userLat, userLng], [recipient.lat, recipient.lng]], 
+                        {color: '#FF9800', weight: 3, opacity: 0.7, dashArray: '5, 10'}
+                    );
+                    routeLines.addLayer(line);
+                });
+                
+                // Add routes between donors and recipients
+                nearbyDonors.forEach(donor => {
+                    nearbyRecipients.forEach(recipient => {
+                        const line = L.polyline(
+                            [[donor.lat, donor.lng], [recipient.lat, recipient.lng]], 
+                            {color: '#FF9800', weight: 3, opacity: 0.7}
+                        );
+                        routeLines.addLayer(line);
+                    });
+                });
+            }
+            
+            // Function to initialize the default India view
+            function initializeDefaultMap() {
+                // Add all donors and recipients to the map
+                addMarkers(donors, '#4CAF50').forEach(marker => donorMarkers.addLayer(marker));
+                addMarkers(recipients, '#2196F3').forEach(marker => recipientMarkers.addLayer(marker));
+                
+                // Add routes between donors and recipients
+                donors.forEach((donor, index) => {
+                    if (recipients[index]) {
+                        const line = L.polyline(
+                            [[donor.lat, donor.lng], [recipients[index].lat, recipients[index].lng]], 
+                            {color: '#FF9800', weight: 3, opacity: 0.7}
+                        );
+                        routeLines.addLayer(line);
+                    }
+                });
+            }
+            
+            // Handle map control buttons
+            const mapControls = document.querySelectorAll('.map-control-btn');
+            mapControls.forEach(control => {
+                control.addEventListener('click', function() {
+                    // Remove active class from all controls
+                    mapControls.forEach(c => c.classList.remove('active'));
+                    // Add active class to clicked control
+                    this.classList.add('active');
+                    
+                    // Clear all layers
+                    map.removeLayer(donorMarkers);
+                    map.removeLayer(recipientMarkers);
+                    map.removeLayer(routeLines);
+                    
+                    // Add selected layer
+                    const view = this.getAttribute('data-view');
+                    if (view === 'donors') {
+                        donorMarkers.addTo(map);
+                    } else if (view === 'recipients') {
+                        recipientMarkers.addTo(map);
+                    } else if (view === 'routes') {
+                        routeLines.addTo(map);
+                        donorMarkers.addTo(map);
+                        recipientMarkers.addTo(map);
+                    }
+                });
+            });
+            
+            // Handle tracking button
+            document.getElementById('trackDeliveryBtn').addEventListener('click', function() {
+                alert('Tracking feature coming soon! Enter your tracking ID to see your delivery status.');
+            });
+            
+            // Handle volunteer button
+            document.getElementById('volunteerBtn').addEventListener('click', function() {
+                window.location.href = 'register.html?type=volunteer';
+            });
+        });
+
+        // Add this script at the end of the body
+        document.addEventListener('DOMContentLoaded', function() {
+            const authButtons = document.getElementById('authButtons');
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+
+            if (isLoggedIn) {
+                authButtons.innerHTML = `
+                    <a href="dashboard.html" class="profile-btn"><i class="fas fa-user"></i> ${userData.firstName || 'Profile'}</a>
+                    <button class="logout-btn" id="logoutBtn">Logout</button>
+                `;
+                
+                // Add logout functionality
+                document.getElementById('logoutBtn').addEventListener('click', function() {
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('userData');
+                    window.location.reload();
+                });
+            } else {
+                authButtons.innerHTML = `
+                    <a href="login.html" class="login-btn">Login</a>
+                    <a href="register.html" class="register-btn">Register</a>
+                `;
+            }
+        });
+    </script>
+</body>
+</html> 
